@@ -1,0 +1,169 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Chat API
+  description: API endpoints for chat messages, learner badges, learner categories, learner chats, learner content, learner courses, learner featured items, learner lectures, learner people, and learner walk
+
+paths:
+  /chats:
+    post:
+      summary: Create a new chat message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChatModel"
+      responses:
+        "200":
+          description: Chat message created successfully
+        "400":
+          description: Invalid request payload
+
+components:
+  schemas:
+    ChatModel:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the chat message
+        message:
+          type: string
+          description: The content of the chat message
+
+    LearnerBadgeModel:
+      type: object
+      properties:
+        img:
+          type: string
+          description: URL of the badge image
+        name:
+          type: string
+          description: Name of the badge
+        comment:
+          type: string
+          description: Comment associated with the badge
+        isLocked:
+          type: boolean
+          description: Indicates whether the badge is locked or not
+
+    LearnerCategoryModel:
+      type: object
+      properties:
+        image:
+          type: string
+          description: URL of the category image
+        name:
+          type: string
+          description: Name of the category
+
+    LearnerChatModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the learner
+        msg:
+          type: string
+          description: The message sent by the learner
+        img:
+          type: string
+          description: URL of the learner's image
+        isOnline:
+          type: boolean
+          description: Indicates whether the learner is online or not
+
+    LearnerContantModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the learner content
+        subtitle:
+          type: string
+          description: Subtitle or description of the learner content
+        type:
+          type: string
+          description: Type or category of the learner content
+
+    LearnerCoursesModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the learner course
+        img:
+          type: string
+          description: URL of the course image
+
+    LearnerFeaturedModel:
+      type: object
+      properties:
+        img:
+          type: string
+          description: URL of the featured item image
+        name:
+          type: string
+          description: Name of the featured item
+        price:
+          type: number
+          description: Price of the featured item
+        strikePrice:
+          type: number
+          description: Strike-through price of the featured item
+        type:
+          type: string
+          description: Type or category of the featured item
+
+    LearnerLectureModel:
+      type: object
+      properties:
+        no:
+          type: integer
+          description: Lecture number
+        title:
+          type: string
+          description: Title of the lecture
+        subtitle:
+          type: string
+          description: Subtitle or description of the lecture
+        type:
+          type: string
+          description: Type or category of the lecture
+
+    LearnerPeopleModel:
+      type: object
+      properties:
+        img:
+          type: string
+          description: URL of the learner's image
+        name:
+          type: string
+          description: Name of the learner
+        points:
+          type: number
+          description: Number of points earned by the learner
+        isOnline:
+          type: boolean
+          description: Indicates whether the learner is online or not
+        subtitle:
+          type: string
+          description: Subtitle or description of the learner
+        email:
+          type: string
+          format: email
+          description: Email address of the learner
+        frd:
+          type: string
+          description: Friend information of the learner
+
+    LearnerWalk:
+      type: object
+      properties:
+        img:
+          type: string
+          description: URL of the walk image
+
+    final030120124:
+      type: String
